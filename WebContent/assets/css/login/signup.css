@@ -1,0 +1,56 @@
+#signupBox .container>div {
+  margin: 0 auto 2rem auto;
+  width: 50%;
+}
+
+#signupBox div>.itm01 {
+  margin: 0 auto 1.5rem auto;
+  width: 40%;
+  height: 13rem;
+  background-image: url("../../imgs/login/login_img_01.png");
+}
+
+#signupBox div>h3 {
+  text-align: center;
+  font-size: 2.1rem;
+  font-weight: 500;
+}
+
+#signupBox form {
+  margin: 0 auto;
+  padding: 3rem;
+  width: 50%;
+  text-align: center;
+}
+
+#signupBox form>div {
+  margin-bottom: 1rem;
+}
+
+#signupBox form .inputBox {
+  position: relative;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+#signupBox form .inputBox label {
+  position: absolute;
+  top: -8%;
+  left: 15%;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#signupBox form .inputBox input {
+  border: .1rem solid #d9d9d9;
+  padding: .5rem 2rem;
+  width: 70%;
+  height: 4rem;
+  font-size: 1.5rem;
+}
+
+#signupBox form .bl_btn {
+  width: 40%;
+  font-size: 1.5rem;
+  color: #d9d9d9;
+}

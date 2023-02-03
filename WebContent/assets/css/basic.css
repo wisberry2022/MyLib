@@ -1,0 +1,50 @@
+.bg_set {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.container {
+  margin: 0 auto;
+  width: 120rem;
+}
+
+.f_left {
+  float: left;
+}
+
+.f_right {
+  float: right;
+}
+
+.bl_btn {
+  display: inline-block;
+  padding: .8rem 0;
+  width: 40%;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+}
+
+.wt_btn {
+  display: inline-block;
+  padding: .8rem 0;
+  width: 40%;
+  background-color: #ddd;
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sr_only {
+  visibility: hidden;
+}
+
+section {
+  padding: 10rem 0;
+}

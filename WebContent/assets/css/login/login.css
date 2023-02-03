@@ -1,0 +1,71 @@
+#wrapper {
+  position: relative;
+}
+
+#loginSection .container .loginBox {
+  border: .1rem solid #ddd;
+  margin: 0 auto;
+  padding: 5rem 3rem;
+  width: 60%;
+}
+
+#loginSection .loginBox>div {
+  margin: 0 auto 4rem auto;
+  width: 50%;
+}
+
+#loginSection .loginBox figure {
+  margin-bottom: 1.2rem;
+  width: 100%;
+  height: 12rem;
+  background-image: url("../../imgs/login/login_img_01.png");
+}
+
+#loginSection .loginBox h3 {
+  text-align: center;
+  font-size: 2.1rem;
+  font-weight: 500;
+}
+
+#loginSection form {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+#loginSection form+ul {
+  margin: 0 auto;
+  width: 40%;
+  height: 1.6rem;
+}
+
+#loginSection ul>li {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+#loginSection ul>li:first-child {
+  border-right: .1rem solid #ddd;
+}
+
+#loginSection ul>li>a {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+#loginSection form>div {
+  margin-bottom: 2rem;
+}
+
+#loginSection form>div input {
+  display: block;
+  border: .1rem solid #ddd;
+  padding: 1rem 2rem;
+  width: 60%;
+  font-size: 1.5rem;
+  margin: 0 auto;
+}
+
+#loginSection form .bl_btn {
+  width: 60%;
+}
