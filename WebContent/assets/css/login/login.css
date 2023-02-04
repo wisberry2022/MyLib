@@ -2,6 +2,43 @@
   position: relative;
 }
 
+#loginSection {
+  position: relative;
+}
+
+#errorModal {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: .1rem solid #d9d9d9;
+  padding: 2.5rem 2rem;
+  width: 60rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+#errorModal h4 {
+  margin-bottom: 1rem;
+  font-size: 2.3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+#errorModal strong {
+  display: block;
+  margin-bottom: 3rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+#errorModal button {
+  width: 30%;
+  font-size: 1.3rem;
+}
+
 #loginSection .container .loginBox {
   border: .1rem solid #ddd;
   margin: 0 auto;
@@ -68,4 +105,55 @@
 
 #loginSection form .bl_btn {
   width: 60%;
+}
+
+/* debug mode */
+/* #errorBox * {
+  outline: 1px solid #000;
+} */
+
+#errorBox .container>div {
+  border: .1rem solid #d9d9d9;
+  padding: 3rem;
+  margin: 0 auto;
+  width: 50%;
+  height: 35rem;
+}
+
+#errorBox .container>div>div .item01 {
+  margin: 0 auto;
+  width: 25%;
+  height: 10rem;
+  background-image: url("../../imgs/login/login_img_01.png");
+}
+
+#errorBox .container>div>div {
+  margin-bottom: 3rem;
+}
+
+#errorBox h3 {
+  font-size: 2.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+#errorBox .container div+p {
+  margin-bottom: 4rem;
+  font-size: 1.7rem;
+  line-height: 2.3rem;
+  text-align: center;
+}
+
+#errorBox ul>li {
+  float: left;
+  width: 35%;
+  text-align: center;
+}
+
+#errorBox ul>li:first-child {
+  margin: 0 3% 0 14%;
+}
+
+#errorBox ul button {
+  width: 100%;
 }

@@ -11,22 +11,31 @@
     <link rel="stylesheet" type="text/css" href="assets/css/first.css">
     <link rel="stylesheet" type="text/css" href="assets/css/login/login.css">
     <link rel="stylesheet" type="text/css" href="assets/css/login/signup.css">
+    <script type="text/javascript" src="./assets/js/redirect.js"></script>
   </head>
 
   <body>
+  	<jsp:useBean id = "User" class = "beanData.UserBean" scope = "session" />
   	<%
+  		System.out.println("유저:" + User.getId() + " " + User.getNickname() + " " + User.getEmail() + " " + User.getAddress() + " " + User.getTypeid());
   		String url = "";
   		if(request.getParameter("page") == null) {
   			url = "pages/first.jsp";
   		}else {
-  			url = "pages/" + request.getParameter("page") + ".jsp";
+  			if(request.getParameter("prefix") == null) url = "pages/" + request.getParameter("page") + ".jsp";
+  			else url = request.getParameter("prefix") + "/" + request.getParameter("page") + ".jsp";
   		}
   	%>
     <div id="topHeader">
       <ul>
-        <li><a href="#">사이트맵</a></li>
-        <li><a href="?page=login/signup">회원가입</a></li>
-        <li><a href="?page=login/login">로그인</a></li>
+        <li><a href="#">사이트맵</a></li>        
+        <% if(User.getId() == null){ %>
+        	<li><a href="?page=login/signup">회원가입</a></li>
+        	<li><a href="?page=login/login">로그인</a></li>
+        <%}else { %>
+        	<li><a href="?page=user/mypage">마이페이지</a></li>
+        	<li><a href="?page=login/logout&prefix=data">로그아웃</a></li>
+        <%} %>
       </ul>
     </div>
     <header>

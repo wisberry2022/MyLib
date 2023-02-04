@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/first.css">
     <link rel="stylesheet" type="text/css" href="assets/css/login/login.css">
     <link rel="stylesheet" type="text/css" href="assets/css/login/signup.css">
+    <script type="text/javascript" src="./assets/js/redirect.js"></script>
+
   </head>
 
   <body>
@@ -45,37 +47,33 @@
     </nav>
     <main>
       <div id="wrapper">
-        <section id="signupBox">
+        <section id="loginSection">
+          <script type="text/javascript" src="./assets/js/modalControl.js"></script>
+          <div id="errorModal">
+            <h4>아이디, 비밀번호 미일치</h4>
+            <strong>아이디와 비밀번호를 확인하세요!</strong>
+            <button type="button" class="bl_btn">확인</button>
+          </div>
           <div class="container">
-            <div>
-              <figure class="bg_set itm01"></figure>
-              <h3>회원가입하기</h3>
-            </div>
-            <form action="/data/login/signup.jsp" method="post">
+            <div class="loginBox">
               <div>
-                <div class="inputBox">
-                  <label for="id">아이디</label>
-                  <input type="text" id="id" name="id" required />
-                </div>
-                <div class="inputBox">
-                  <label for="pwd">비밀번호</label>
-                  <input type="password" id="pwd" name="pwd" required />
-                </div>
-                <div class="inputBox">
-                  <label for="nickname">닉네임</label>
-                  <input type="text" id="nickname" name="nickname" required />
-                </div>
-                <div class="inputBox">
-                  <label for="email">이메일</label>
-                  <input type="email" id="email" name="email" required />
-                </div>
-                <div class="inputBox">
-                  <label for="address">주소</label>
-                  <input type="text" id="address" name="address" />
-                </div>
+                <figure class="bg_set"></figure>
+                <h3>로그인 하기</h3>
               </div>
-              <button class="bl_btn">회원가입하기</button>
-            </form>
+              <form action="data/login/login.jsp" method="post">
+                <div>
+                  <label for="idbox" class="sr_only">아이디</label>
+                  <input type="text" id="idbox" name="id" placeholder="아이디를 입력하세요" required />
+                  <label for="pwdbox" class="sr_only">아이디</label>
+                  <input type="password" id="pwdbox" name="pwd" placeholder="비밀번호를 입력하세요" required />
+                </div>
+                <button class="bl_btn">로그인하기</button>
+              </form>
+              <ul>
+                <li><a href="#">아이디 찾기</a></li>
+                <li><a href="#">비밀번호 찾기</a></li>
+              </ul>
+            </div>
           </div>
         </section>
       </div>
@@ -232,4 +230,61 @@
        </div>
      </div>
    </section>
+</div> -->
+<!-- signup -->
+<!-- <div id="wrapper">
+  <section id="signupBox">
+    <div class="container">
+      <div>
+        <figure class="bg_set itm01"></figure>
+        <h3>회원가입하기</h3>
+      </div>
+      <form action="/data/login/signup.jsp" method="post">
+        <div>
+          <div class="inputBox">
+            <label for="id">아이디</label>
+            <input type="text" id="id" name="id" required />
+          </div>
+          <div class="inputBox">
+            <label for="pwd">비밀번호</label>
+            <input type="password" id="pwd" name="pwd" required />
+          </div>
+          <div class="inputBox">
+            <label for="nickname">닉네임</label>
+            <input type="text" id="nickname" name="nickname" required />
+          </div>
+          <div class="inputBox">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="inputBox">
+            <label for="address">주소</label>
+            <input type="text" id="address" name="address" />
+          </div>
+        </div>
+        <button class="bl_btn">회원가입하기</button>
+      </form>
+    </div>
+  </section>
+</div> -->
+<!-- login error -->
+<!-- <div id="wrapper">
+  <section id="errorBox">
+    <div class="container">
+      <div>
+        <div>
+          <figure class="bg_set item01"></figure>
+          <h3>에러 페이지</h3>
+        </div>
+        <p>
+          죄송합니다. 에러가 발생하였습니다. <br />
+          관리자에게 문의바랍니다. (Tel: 010-8558-8341)
+        </p>
+        <ul>
+          <li><button type="button" class="bl_btn">홈으로</button></li>
+          <li><button type="button" class="wt_btn">뒤로 가기</button></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </div> -->

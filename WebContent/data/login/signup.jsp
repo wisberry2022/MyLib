@@ -1,8 +1,7 @@
-<%@page import="localSQL.LocalMySql"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <body>
-    <%@page import = "localSQL.LocalMySql.*, java.sql.*, java.util.*" %>
+    <%@page import = "localSQL.LocalMySql, java.sql.*, java.util.*" %>
     
     <%
     	request.setCharacterEncoding("utf-8");
