@@ -1,0 +1,6 @@
+data/login/signup.jsp
+	-> response.sendRedirect("../../index.jsp?page=login/signup&error=dberror");
+	-> db error 시 관리자 문의 창으로 넘어가는 로직
+
+	-> response.sendRedirect("../../index.jsp?page=login/signup&error=error");
+	-> 비밀번호/확인 비밀번호 맞지 않았을 때 모달 창 뜨게하기

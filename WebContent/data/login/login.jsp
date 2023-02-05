@@ -21,11 +21,12 @@
 		String result = "";
 		String sql = "select id, nickname, email, address, typeid from userinfo where id='" + id + "' and pwd=sha2('" + pwd + "', 512)";
 		System.out.println(sql);
+		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		
 		try {
-			Connection conn = LocalMySql.getConnection();
+			conn = LocalMySql.getConnection();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			
@@ -43,18 +44,21 @@
 				result = "EMPTY";
 			}
 			
-			if(conn != null) conn.close();
-			
-			if(result.equals("ADMIN") || result.equals("GUEST")) {
-				response.sendRedirect("../../index.jsp");	
-			}else if(result.equals("EMPTY")){
-				response.sendRedirect("../../index.jsp?page=login/login&error=misinput");
-					
-			}
 			
 		}catch(Exception e){
 			e.printStackTrace();
 			response.sendRedirect("../../index.jsp?page=error/loginError");
+		}finally {
+			if(rs != null) rs.close();
+			if(stmt != null) stmt.close();
+			if(conn != null) conn.close();
+		}
+		
+		if(result.equals("ADMIN") || result.equals("GUEST")) {
+			response.sendRedirect("../../index.jsp");	
+		}else if(result.equals("EMPTY")){
+			response.sendRedirect("../../index.jsp?page=login/login&error=misinput");
+				
 		}
 
     %>

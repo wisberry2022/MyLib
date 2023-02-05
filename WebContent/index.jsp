@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/first.css">
     <link rel="stylesheet" type="text/css" href="assets/css/login/login.css">
     <link rel="stylesheet" type="text/css" href="assets/css/login/signup.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/admin/admin.css">
     <script type="text/javascript" src="./assets/js/redirect.js"></script>
   </head>
 
@@ -32,10 +33,18 @@
         <% if(User.getId() == null){ %>
         	<li><a href="?page=login/signup">회원가입</a></li>
         	<li><a href="?page=login/login">로그인</a></li>
-        <%}else { %>
+        <%}else {
+        	if(User.getTypeid() == 2) {%>
         	<li><a href="?page=user/mypage">마이페이지</a></li>
         	<li><a href="?page=login/logout&prefix=data">로그아웃</a></li>
-        <%} %>
+        <%
+        	}else if(User.getTypeid() == 1) { 
+       	%>
+        		<li><a href="?page=admin/manage">관리자 설정</a></li>
+            	<li><a href="?page=login/logout&prefix=data">로그아웃</a></li>	
+        <% 	
+        }
+        	} %>
       </ul>
     </div>
     <header>

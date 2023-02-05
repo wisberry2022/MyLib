@@ -10,10 +10,12 @@ create table userinfo (
 	id varchar(20) primary key,
 	pwd varchar(512) NOT NULL,
 	re varchar(512) NOT NULL,
+	nickname varchar(50) NOT NULL UNIQUE,
 	email varchar(60) NOT NULL UNIQUE,
 	address varchar(50) NULL,
 	typeid tinyint NOT NULL,
-	foreign key (typeid) references usertype(typeid)
+	foreign key (typeid) references usertype(typeid),
+	check(re = pwd)
 );
 
-insert into userinfo values ("admin", sha2("admin1234", 512), "admin", "admin@mylib.co.kr", NULL, 1);
+insert into userinfo values ("admin", sha2("admin1234", 512), sha2("admin1234", 512), "admin", "admin@mylib.co.kr", NULL, 1);

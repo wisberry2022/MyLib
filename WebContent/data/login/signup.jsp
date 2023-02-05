@@ -5,26 +5,32 @@
     
     <%
     	request.setCharacterEncoding("utf-8");
+    	Connection conn = null;
+    	Statement stmt = null;
     	
     	if(request.getParameter("pwd").equals(request.getParameter("re"))) {
     		String sql = "insert into userinfo values(";
-        	sql += "'" + request.getParameter("id") + "', sha2('" + request.getParameter("pwd") + "', 512), '" + request.getParameter("nickname") + "', '" + request.getParameter("email") + "', '" + request.getParameter("address") + "', 2)";
+        	sql += "'" + request.getParameter("id") + "', sha2('" + request.getParameter("pwd") + "', 512), sha2('" + request.getParameter("re") + "', 512), '" + request.getParameter("nickname") + "', '" + request.getParameter("email") + "', '" + request.getParameter("address") + "', 2)";
         	System.out.println(sql);
         	
         	try{
-        		Connection conn = LocalMySql.getConnection();
-            	Statement stmt = conn.createStatement();
+        		conn = LocalMySql.getConnection();
+            	stmt = conn.createStatement();
             	
             	stmt.executeUpdate(sql);
-        		
-        		if(conn != null) conn.close();
-        		
+        				
         	}catch(Exception e) {
         		e.printStackTrace();
+        		response.sendRedirect("../../index.jsp?page=login/signup&error=dberror");
+        		return;
+        	}finally {
+        		if(stmt != null) stmt.close();
+        		if(conn != null) conn.close();
         	}
         	response.sendRedirect("../../index.jsp?page=login/login");
+        	return;
     	}else {
-    		response.sendRedirect("../../index.jsp?page=login/signup");
+    		response.sendRedirect("../../index.jsp?page=login/signup&error=error");
     	}
     %>
     </body>

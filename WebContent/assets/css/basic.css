@@ -45,6 +45,45 @@
   visibility: hidden;
 }
 
+.pagination {
+  text-align: center;
+}
+
+.pagination ul {
+  display: inline-block;
+}
+
+.pagination ul>li {
+  float: left;
+}
+
+.pagination ul>li>a {
+  width: 3rem;
+  height: 100%;
+  font-size: 1.5rem;
+  line-height: 3.5rem;
+  text-align: center;
+}
+
+.pagination ul>li.prev,
+.pagination ul>li.next {
+  width: 7rem;
+}
+
+.pagination ul>li.prev {
+  margin-right: 2rem;
+}
+
+.pagination ul>li.next {
+  margin-left: 2rem;
+}
+
+.pagination ul>li.prev button,
+.pagination ul>li.next button {
+  width: 100%;
+}
+
+
 section {
   padding: 10rem 0;
 }

@@ -1,0 +1,141 @@
+#adminWrapper>.item01 {
+  width: 100%;
+  height: 23rem;
+  background-image: url("../../imgs/admin/admin_01.jpg");
+  background-size: cover;
+}
+
+#adminWrapper>.item01>h2 {
+  font-size: 2.7rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 23rem;
+}
+
+/* #adminMain * {
+  outline: 1px solid #000;
+} */
+
+#adminMain {
+  padding: 0 0 10rem 0;
+}
+
+#adminMain .container {
+  height: 50rem;
+}
+
+#adminMain .container>ul {
+  border-right: .1rem solid #ddd;
+  width: 20%;
+  height: 100%;
+}
+
+#adminMain .container>ul>li>a {
+  border-bottom: .1rem solid #ddd;
+  padding: 2rem .5rem;
+  width: 100%;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+#adminMain .container>ul>li>a:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+#contentsBox {
+  width: 80%;
+}
+
+#contentsBox>.innerBox {
+  padding: 5rem 4rem;
+}
+
+#contentsBox>.innerBox>div:first-child {
+  margin-bottom: 8rem;
+}
+
+#contentsBox>.innerBox>div h3 {
+  margin-bottom: 2rem;
+  font-size: 2.3rem;
+  font-weight: 600;
+}
+
+#contentsBox>.innerBox>div p {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+#contentsBox>.innerBox>table {
+  margin: 0 auto 2.5rem auto;
+  border-collapse: collapse;
+}
+
+#contentsBox>.innerBox>table thead>tr>th {
+  border-bottom: .1rem solid #ddd;
+  padding: 1rem 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+#contentsBox>.innerBox>table td {
+  border-bottom: .1rem solid #f1f1f1;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+#contentsBox>.innerBox>table tbody tr>td:first-child {
+  min-width: 25rem;
+  max-width: 35rem;
+}
+
+#contentsBox>.innerBox>table>tbody>tr>td:first-child>a {
+  margin: 0 auto;
+  width: 50%;
+  padding: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#contentsBox>.innerBox>table tbody tr>td:nth-child(2) {
+  min-width: 33rem;
+  max-width: 33rem;
+}
+
+#contentsBox>.innerBox>table>tbody>tr>td:nth-child(2)>a {
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#contentsBox>.innerBox>table tbody tr>td:nth-child(3) {
+  min-width: 10rem;
+  max-width: 12rem;
+}
+
+#contentsBox>.innerBox>table>tbody>tr>td:nth-child(3)>a {
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#contentsBox>.innerBox>table tbody tr>td:last-child {
+  min-width: 10rem;
+  max-width: 12rem;
+}
+
+#contentsBox>.innerBox>table>tbody>tr>td:last-child>a {
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
