@@ -25,6 +25,8 @@
   		}else {
   			if(request.getParameter("prefix") == null) url = "pages/" + request.getParameter("page") + ".jsp";
   			else url = request.getParameter("prefix") + "/" + request.getParameter("page") + ".jsp";
+  			if(request.getParameter("value") == null ) url = "pages/" + request.getParameter("page") + ".jsp";
+  			else url = "pages/" + request.getParameter("page") + ".jsp?" + "value=" + request.getParameter("value"); 
   		}
   	%>
     <div id="topHeader">

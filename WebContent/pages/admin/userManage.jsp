@@ -3,14 +3,19 @@
 <body>
 <%@page import = "localSQL.LocalMySql, java.sql.*, java.util.*" %>
 <%
+	int start = request.getParameter("start") == null ? 0 : Integer.parseInt(request.getParameter("start"));
+	int dataStart = request.getParameter("count") == null ? 0 : Integer.parseInt(request.getParameter("count"));
+	int dataEnd = 0;
+	
+	int end = 0;
 	int total = 0;
-	int criteria = 5;
+	int criteria = 4;
+	
 	Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
 	String sql = "select id, email, nickname, typeid from userinfo where typeid = 2";
 	List<String[]> userList = new ArrayList<String[]>();
-	
 	
 	try {	
 		conn = LocalMySql.getConnection();
@@ -35,7 +40,12 @@
 	}
 	
 	// 페이지 네이션 개수
-	total = (int)Math.ceil(userList.size()*1.0/criteria*1.0);
+	total = (int)Math.ceil(userList.size()*1.0/5*1.0);
+	end = start + criteria >= total ? total : start+criteria;
+	dataEnd = dataStart + 5 > userList.size() ? userList.size() : dataStart + 5; 
+	// System.out.println(start);
+	// System.out.println("pagination:" + start + " ~ " + end + " / " + total);
+	System.out.println(dataStart);
 %>
  <div class="innerBox">
      <div>
@@ -52,11 +62,11 @@
          </tr>
        </thead>
        <tbody>
-       <% for(int i = 0; i<userList.size(); i++) {
+       <% for(int i = dataStart; i<dataEnd; i++) {
     	   String[] data = userList.get(i);
     	   %>
          <tr>
-           <td><a href="#"><%=data[0] %></a></td>
+           <td><a href="?page=admin/userDetail/detail&value=<%=data[0] %>"><%=data[0] %></a></td>
            <td><a href="#"><%=data[1] %></a></td>
            <td><a href="#"><%=data[2] %></a></td>
            <td><a href="#"><%=data[3].equals("2") ? "일반회원" : "기타" %></a></td>
@@ -67,12 +77,14 @@
      </table>
      <div class="pagination">
        <ul>
-         <li class="prev">
-           <button type="button" class="bl_btn">prev</button>
-         </li>
-         <li><a href="#">1</a></li>
+          <li class="prev">
+             <a href="?page=admin/manage&sub=userManage&start=<%=start == 0 ? 0 : start-criteria %>" class="bl_btn">prev</a>
+          </li>
+         <% for(int i = start; i<end; i++){%>
+         	<li><a href="?page=admin/manage&sub=userManage&start=<%=start %>&count=<%=(i*5) %>"><%=i+1 %></a></li>
+         <% }%>
          <li class="next">
-           <button type="button" class="wt_btn next">next</button>
+             <a href="?page=admin/manage&sub=userManage&start=<%=end != total ? start+criteria : start %>&count=<%=end != total ? dataStart+5 : dataStart %>" class="wt_btn">next</a>
          </li>
        </ul>
      </div>
