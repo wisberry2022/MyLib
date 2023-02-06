@@ -1,3 +1,25 @@
+--create table usertype (
+--	typeid tinyint primary key,
+--	name varchar(35) NOT NULL
+--);
+--
+--insert into usertype values (1, "admin");
+--insert into usertype values (2, "guest");
+--
+--create table userinfo (
+--	id varchar(20) primary key,
+--	pwd varchar(512) NOT NULL,
+--	re varchar(512) NOT NULL,
+--	nickname varchar(50) NOT NULL UNIQUE,
+--	email varchar(60) NOT NULL UNIQUE,
+--	address varchar(50) NULL,
+--	typeid tinyint NOT NULL,
+--	foreign key (typeid) references usertype(typeid),
+--	check(re = pwd)
+--);
+--
+--insert into userinfo values ("admin", sha2("admin1234", 512), sha2("admin1234", 512), "admin", "admin@mylib.co.kr", NULL, 1);
+
 create table usertype (
 	typeid tinyint primary key,
 	name varchar(35) NOT NULL
@@ -8,8 +30,8 @@ insert into usertype values (2, "guest");
 
 create table userinfo (
 	id varchar(20) primary key,
-	pwd varchar(512) NOT NULL,
-	re varchar(512) NOT NULL,
+	pwd blob NOT NULL,
+	re blob NOT NULL,
 	nickname varchar(50) NOT NULL UNIQUE,
 	email varchar(60) NOT NULL UNIQUE,
 	address varchar(50) NULL,
@@ -18,4 +40,4 @@ create table userinfo (
 	check(re = pwd)
 );
 
-insert into userinfo values ("admin", sha2("admin1234", 512), sha2("admin1234", 512), "admin", "admin@mylib.co.kr", NULL, 1);
+insert into userinfo values ("admin", aes_encrypt("admin1234", sha2("key", 512)), aes_encrypt("admin1234", sha2("key", 512)), "admin", "admin@mylib.co.kr", NULL, 1);

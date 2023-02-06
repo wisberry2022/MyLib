@@ -2,7 +2,10 @@
     pageEncoding="UTF-8"%>
 <%
 	String aUrl = request.getParameter("sub") == null ? "userManage" : request.getParameter("sub");
-	String total = aUrl + ".jsp";
+	String total = "";
+	if(aUrl.contains("id")) total = aUrl.split("\\?")[0] + "?" + aUrl.split("\\?")[1];
+	else total = aUrl + ".jsp";
+	System.out.println(aUrl + "\t" + total);
 %>    
 <div id="adminWrapper">
   <figure class="bg_set item01">

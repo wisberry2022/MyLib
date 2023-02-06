@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/login/login.css">
     <link rel="stylesheet" type="text/css" href="assets/css/login/signup.css">
     <link rel="stylesheet" type="text/css" href="assets/css/admin/admin.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/admin/detail.css">
     <script type="text/javascript" src="./assets/js/redirect.js"></script>
   </head>
 
@@ -24,10 +25,9 @@
   			url = "pages/first.jsp";
   		}else {
   			if(request.getParameter("prefix") == null) url = "pages/" + request.getParameter("page") + ".jsp";
-  			else url = request.getParameter("prefix") + "/" + request.getParameter("page") + ".jsp";
-  			if(request.getParameter("value") == null ) url = "pages/" + request.getParameter("page") + ".jsp";
-  			else url = "pages/" + request.getParameter("page") + ".jsp?" + "value=" + request.getParameter("value"); 
+  			else url = request.getParameter("prefix") + "/" + request.getParameter("page") + ".jsp"; 
   		}
+  		
   	%>
     <div id="topHeader">
       <ul>

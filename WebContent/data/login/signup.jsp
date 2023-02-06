@@ -10,7 +10,8 @@
     	
     	if(request.getParameter("pwd").equals(request.getParameter("re"))) {
     		String sql = "insert into userinfo values(";
-        	sql += "'" + request.getParameter("id") + "', sha2('" + request.getParameter("pwd") + "', 512), sha2('" + request.getParameter("re") + "', 512), '" + request.getParameter("nickname") + "', '" + request.getParameter("email") + "', '" + request.getParameter("address") + "', 2)";
+//         	sql += "'" + request.getParameter("id") + "', sha2('" + request.getParameter("pwd") + "', 512), sha2('" + request.getParameter("re") + "', 512), '" + request.getParameter("nickname") + "', '" + request.getParameter("email") + "', '" + request.getParameter("address") + "', 2)";
+        	sql += "'" + request.getParameter("id") + "', aes_encrypt('" + request.getParameter("pwd") + "', sha2('key', 512)), aes_encrypt('" + request.getParameter("re") + "', sha2('key', 512)), '" + request.getParameter("nickname") + "', '" + request.getParameter("email") + "', '" + request.getParameter("address") + "', 2)";  
         	System.out.println(sql);
         	
         	try{

@@ -45,7 +45,7 @@
 	dataEnd = dataStart + 5 > userList.size() ? userList.size() : dataStart + 5; 
 	// System.out.println(start);
 	// System.out.println("pagination:" + start + " ~ " + end + " / " + total);
-	System.out.println(dataStart);
+	// System.out.println(dataStart);
 %>
  <div class="innerBox">
      <div>
@@ -66,10 +66,11 @@
     	   String[] data = userList.get(i);
     	   %>
          <tr>
-           <td><a href="?page=admin/userDetail/detail&value=<%=data[0] %>"><%=data[0] %></a></td>
-           <td><a href="#"><%=data[1] %></a></td>
-           <td><a href="#"><%=data[2] %></a></td>
-           <td><a href="#"><%=data[3].equals("2") ? "일반회원" : "기타" %></a></td>
+           
+           <td><a href="?page=admin/manage&sub=userDetail/detail.jsp?id=<%=data[0] %>"><%=data[0] %></a></td>
+           <td><a href="?page=admin/manage&sub=userDetail/detail.jsp?id=<%=data[0] %>"><%=data[1] %></a></td>
+           <td><a href="?page=admin/manage&sub=userDetail/detail.jsp?id=<%=data[0] %>"><%=data[2] %></a></td>
+           <td><a href="?page=admin/manage&sub=userDetail/detail.jsp?id=<%=data[0] %>"><%=data[3].equals("2") ? "일반회원" : "기타" %></a></td>
          </tr>
         <%
     	   } %>

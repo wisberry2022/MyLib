@@ -1,89 +1,137 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="utf-8">
-  <!-- reset css -->
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/basic.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/index.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/first.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/login/login.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/login/signup.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/admin/admin.css">
-  <script type="text/javascript" src="./assets/js/redirect.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <!-- reset css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/basic.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/first.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/login/login.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/login/signup.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/admin/admin.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/admin/detail.css">
+    <script type="text/javascript" src="./assets/js/redirect.js"></script>
 
-</head>
+  </head>
 
-<body>
-  <div id="topHeader">
-    <ul>
-      <li><a href="#">사이트맵</a></li>
-      <li><a href="#">회원가입</a></li>
-      <li><a href="#">로그인</a></li>
-    </ul>
-  </div>
-  <header>
-    <h1 class="bg_set">
-      <a href="/">
-        MyLib
-      </a>
-    </h1>
-  </header>
-  <nav>
-    <ul class="mainMenu">
-      <li>
-        <a href="#">홈페이지</a>
-      </li>
-      <li>
-        <a href="#">도서정보</a>
-      </li>
-      <li>
-        <a href="#">열린공간</a>
-      </li>
-      <li>
-        <a href="#">자료검색</a>
-      </li>
-    </ul>
-  </nav>
-  <main>
-    <div id="adminWrapper">
-      <figure class="bg_set item01">
-        <h2>관리자 페이지</h2>
-      </figure>
-      <section id="adminMain">
-        <div class="container">
-          <ul class="f_left">
-            <li><a href="#">회원 관리</a></li>
-            <li><a href="#">게시물 관리</a></li>
-            <li><a href="#">도서정보 관리</a></li>
-          </ul>
-          <div id="contentsBox" class="f_left">
-
+  <body>
+    <div id="topHeader">
+      <ul>
+        <li><a href="#">사이트맵</a></li>
+        <li><a href="#">회원가입</a></li>
+        <li><a href="#">로그인</a></li>
+      </ul>
+    </div>
+    <header>
+      <h1 class="bg_set">
+        <a href="/">
+          MyLib
+        </a>
+      </h1>
+    </header>
+    <nav>
+      <ul class="mainMenu">
+        <li>
+          <a href="#">홈페이지</a>
+        </li>
+        <li>
+          <a href="#">도서정보</a>
+        </li>
+        <li>
+          <a href="#">열린공간</a>
+        </li>
+        <li>
+          <a href="#">자료검색</a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <div id="adminWrapper">
+        <figure class="bg_set item01">
+          <h2>관리자 페이지</h2>
+        </figure>
+        <section id="adminMain">
+          <div class="container">
+            <ul class="f_left">
+              <li><a href="#">회원 관리</a></li>
+              <li><a href="#">게시물 관리</a></li>
+              <li><a href="#">도서정보 관리</a></li>
+            </ul>
+            <div id="contentsBox" class="f_left">
+              <div id="detailBox">
+                <div>
+                  <h3>회원정보 수정</h3>
+                </div>
+                <form action="#" method="post">
+                  <table>
+                    <thead class="sr_only">
+                      <tr>
+                        <th>아이디</th>
+                        <th>비밀번호</th>
+                        <th>닉네임</th>
+                        <th>이메일</th>
+                        <th>주소</th>
+                        <th>회원 유형</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="singleCell">
+                        <td class="title">아이디</td>
+                        <td><input type="text" name="id" /></td>
+                        <td class="title">비밀번호</td>
+                        <td><input type="password" name="pwd" /></td>
+                      </tr>
+                      <tr class="singleCell">
+                        <td class="title">이메일</td>
+                        <td><input type="email" name="pwd" /></td>
+                        <td class="title">닉네임</td>
+                        <td><input type="text" name="nickname" /></td>
+                      </tr>
+                      <tr class="doubleCell">
+                        <td class="title">주소</td>
+                        <td><input type="text" name="address" /></td>
+                        <td class="title">회원 유형</td>
+                        <td>
+                          <select name="typeid">
+                            <option value="1">관리자</option>
+                            <option value="2">일반회원</option>
+                          </select>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="btnBox">
+                    <button type="submit" class="bl_btn">수정하기</button>
+                    <button type="submit" class="wt_btn">취소하기</button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div id=" top_footer">
+        <div class="container">
+          <ul>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">개인정보 처리방침</a></li>
+            <li><a href="#">저작권보호정책</a></li>
+            <li><a href="#">키보드보안프로그램설치안내</a></li>
+          </ul>
         </div>
-      </section>
-    </div>
-  </main>
-  <footer>
-    <div id="top_footer">
-      <div class="container">
-        <ul>
-          <li><a href="#">이용약관</a></li>
-          <li><a href="#">개인정보 처리방침</a></li>
-          <li><a href="#">저작권보호정책</a></li>
-          <li><a href="#">키보드보안프로그램설치안내</a></li>
-        </ul>
       </div>
-    </div>
-    <div id="bottom_footer">
-      <div class="container">
-        <address>(46949) 부산광역시 사상구 사상로310번길 33(덕포동) 전화 051-310-5400 / 팩스 051-310-5429</address>
-        <p>&copy; © 2020 Busan Metropolitan City Library, All rights reserved.</p>
+      <div id="bottom_footer">
+        <div class="container">
+          <address>(46949) 부산광역시 사상구 사상로310번길 33(덕포동) 전화 051-310-5400 / 팩스 051-310-5429</address>
+          <p>&copy; © 2020 Busan Metropolitan City Library, All rights reserved.</p>
+        </div>
       </div>
-    </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 
 </html>
 

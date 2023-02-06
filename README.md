@@ -52,9 +52,18 @@
 
   * 향후 추가사항
       - ~~페이지네이션 기능 구현 완료(2023.02.05 17:32분경 구현 완료)~~
-      - 회원 정보 수정, 삭제, 삽입을 위한 추가기능 구현 필요
+      - 회원 정보 ~~수정(2023.02.06 21:47분경 구현 완료)~~, 삭제 위한 추가기능 구현 필요
 
 <br />
+
+-2023.02.06 (Ver0.6.1)
+  - 관리자 페이지 구현(유저 관리 페이지 구현 중)
+    - 특정 회원 수정(data/admin/userManager/update.jsp) 구현
+  - 회원 패스워드 암호/복호화 지원 위해 userinfo 테이블 중 pwd 필드를 BLOB으로 변경
+
+  - ETC
+    - 회원정보 목록 출력을 위한 더미 Insert Data 수정(test/dummy_test.txt) 
+  
 
   ***
 
@@ -62,8 +71,8 @@
 
   ## 수정해야 할 Bug
   
-    - data/login/signup.jsp
-	    - response.sendRedirect("../../index.jsp?page=login/signup&error=dberror");
-	      - db error 시 관리자 문의 에러페이지로 넘어가게 구성
-	    - response.sendRedirect("../../index.jsp?page=login/signup&error=error");
-	      - 비밀번호/확인 비밀번호(re field) 맞지 않았을 때 모달 창 뜨게하기
+  - data/login/signup.jsp
+    - response.sendRedirect("../../index.jsp?page=login/signup&error=dberror");
+    - db error 시 관리자 문의 에러페이지로 넘어가게 구성
+  - response.sendRedirect("../../index.jsp?page=login/signup&error=error");
+      - 비밀번호/확인 비밀번호(re field) 맞지 않았을 때 모달 창 뜨게하기

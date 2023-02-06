@@ -19,7 +19,7 @@
     	String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		String result = "";
-		String sql = "select id, nickname, email, address, typeid from userinfo where id='" + id + "' and pwd=sha2('" + pwd + "', 512)";
+		String sql = "select id, nickname, email, address, typeid from userinfo where id='" + id + "' and pwd=aes_encrypt('" + pwd + "', sha2('key', 512))";
 		System.out.println(sql);
 		Connection conn = null;
 		Statement stmt = null;
