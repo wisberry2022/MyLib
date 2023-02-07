@@ -52,9 +52,11 @@
        <h3>회원 관리하기</h3>
        <p>도서정보시스템에 가입된 회원들을 통합관리할 수 있습니다</p>
      </div>
+     <form action = "data/admin/userManage/delete.jsp" method = "POST">
      <table>
        <thead>
          <tr>
+           <th>선택</th>
            <th>아이디</th>
            <th>이메일</th>
            <th>닉네임</th>
@@ -66,7 +68,7 @@
     	   String[] data = userList.get(i);
     	   %>
          <tr>
-           
+           <td><input type="checkbox" name="target" value="<%=data[0] %>" /></td>
            <td><a href="?page=admin/manage&sub=userDetail/detail.jsp?id=<%=data[0] %>"><%=data[0] %></a></td>
            <td><a href="?page=admin/manage&sub=userDetail/detail.jsp?id=<%=data[0] %>"><%=data[1] %></a></td>
            <td><a href="?page=admin/manage&sub=userDetail/detail.jsp?id=<%=data[0] %>"><%=data[2] %></a></td>
@@ -76,6 +78,8 @@
     	   } %>
        </tbody>
      </table>
+     <button type="submit" class="bl_btn">삭제하기</button>
+     </form>
      <div class="pagination">
        <ul>
           <li class="prev">

@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/login/signup.css">
     <link rel="stylesheet" type="text/css" href="assets/css/admin/admin.css">
     <link rel="stylesheet" type="text/css" href="assets/css/admin/detail.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/space.css">
     <script type="text/javascript" src="./assets/js/redirect.js"></script>
   </head>
 
@@ -65,7 +66,7 @@
           <a href="?page=info">도서정보</a>
         </li>
         <li>
-          <a href="?page=space">열린공간</a>
+          <a href="?page=space/openSpace">열린공간</a>
         </li>
         <li>
           <a href="?page=search">자료검색</a>
