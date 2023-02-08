@@ -31,6 +31,9 @@
             </tr>
           </tbody>
         </table>
+        <div>
+        	<a href="#" class="bl_btn writeBtn">글쓰기</a>
+        </div>
         <div class="pagination">
           <ul>
             <li class="prev"><a href="#" class="bl_btn">prev</a></li>
@@ -42,7 +45,6 @@
             <li class="next"><a href="#" class="wt_btn">next</a></li>
           </ul>
         </div>
-        <a href="#" class="bl_btn writeBtn">글쓰기</a>
         <form action="#" method="GET">
           <select name="search">
             <option name="title">제목</option>

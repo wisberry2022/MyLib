@@ -1,3 +1,4 @@
+/* board main */
 #wrapper>.over_section {
   background-image: url("../imgs/section/section_bg_01.jpg");
   background-size: cover;
@@ -18,16 +19,7 @@
 } */
 
 #openSpace .container>div {
-  position: relative;
   margin-bottom: 8rem;
-}
-
-#openSpace .writeBtn {
-  position: absolute;
-  top: -10%;
-  right: 10%;
-  width: 9%;
-  font-size: 1.5rem;
 }
 
 #openSpace .container>div>h3 {
@@ -44,7 +36,7 @@
 }
 
 #openSpace table {
-  margin: 0 auto 8rem auto;
+  margin: 0 auto 1.5rem auto;
   border-collapse: collapse;
   width: 80%;
   text-align: center;
@@ -101,6 +93,19 @@
   font-size: 1.4rem;
 }
 
+#openSpace table+div {
+  margin: 0 auto;
+  width: 96rem;
+  height: 3.4rem;
+  margin-bottom: 2rem;
+  text-align: right;
+}
+
+#openSpace .writeBtn {
+  width: 9%;
+  font-size: 1.5rem;
+}
+
 #openSpace .pagination {
   margin-bottom: 2rem;
 }
@@ -129,4 +134,209 @@
   width: 5%;
   font-size: 1.5rem;
   font-weight: 600;
+}
+
+/* board main */
+
+/* board content */
+#board>.boardBox {
+  margin-bottom: 3rem;
+}
+
+#board>.boardBox.container>h3 {
+  margin-bottom: 5rem;
+  border-bottom: .1rem solid #ddd;
+  padding-bottom: 1rem;
+  font-size: 2.6rem;
+  font-weight: 600;
+}
+
+#boardContent>table {
+  margin-bottom: 2.5rem;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#boardContent>table .title {
+  border-top: .2rem solid #000;
+  border-bottom: .1rem solid #d9d9d9;
+  padding: 1rem 0;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+#boardContent>table tr>td {
+  border-bottom: .1rem solid #d9d9d9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#boardContent>table tr:nth-child(2)>td {
+  padding: 1rem 0;
+  font-size: 1.5rem;
+}
+
+#boardContent>table tr:nth-child(2)>td:first-child {
+  border-right: .1rem solid #ddd;
+  max-width: 15rem;
+  min-width: 15rem;
+  text-align: center;
+}
+
+#boardContent>table tr:nth-child(2)>td:nth-child(2) {
+  border-right: .1rem solid #ddd;
+  padding-left: 1rem;
+  max-width: 60rem;
+  min-width: 60rem;
+}
+
+#boardContent>table tr:nth-child(2)>td:nth-child(3) {
+  border-right: .1rem solid #ddd;
+  max-width: 10rem;
+  min-width: 10rem;
+  text-align: center;
+}
+
+#boardContent>table tr:nth-child(2)>td:nth-child(4) {
+  max-width: 10rem;
+  min-width: 10rem;
+  text-align: center;
+}
+
+#boardContent .mainContent {
+  /* outline: 1px solid #000; */
+  border-bottom: .2rem solid #000;
+  padding: 3rem;
+  font-size: 1.5rem;
+}
+
+.boardBox .btnBox {
+  /* outline: 1px solid #000; */
+  margin-left: auto;
+  padding-top: 2rem;
+  width: 50%;
+  text-align: right;
+}
+
+.boardBox .btnBox>a {
+  width: 15%;
+}
+
+.boardBox .btnBox>a:first-child {
+  margin-right: 1rem;
+}
+
+#board>.commentBox {
+  /* outline: 1px solid #000; */
+  margin-bottom: 1rem;
+  border-top: .1rem dotted #d9d9d9;
+  border-bottom: .1rem dotted #d9d9d9;
+  padding: 2.5rem 0;
+}
+
+#board>.commentBox h4 {
+  margin-bottom: 2.5rem;
+  font-size: 2.1rem;
+  font-weight: 500;
+}
+
+#board>.commentBox strong {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.commentBox textarea {
+  margin-bottom: 1.5rem;
+  border: .1rem solid #d9d9d9;
+  padding: 2rem;
+  width: 100%;
+  height: 8rem;
+  resize: none;
+  font-size: 1.5rem;
+
+}
+
+.commentBox>div div {
+  text-align: right;
+}
+
+.commentBox>div div button {
+  width: 15%;
+  font-weight: 600;
+}
+
+.commentBox>.unlogin {
+  border: .1rem solid #d9d9d9;
+  padding: 2rem;
+  background-color: #f9f9f9;
+
+}
+
+.commentBox>.unlogin h5 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+#board .commentList {
+  margin-bottom: 1.5rem;
+  clear: both;
+  padding: 1rem 0;
+}
+
+/* #board .commentList>.comment {
+  outline: .1rem solid #000;
+} */
+
+#board .commentList>.comment>div {
+  border-bottom: .1rem solid #d9d9d9;
+}
+
+#board .commentList>.comment>div span {
+  display: inline-block;
+  border-top: .1rem solid #ddd;
+  padding: .5rem;
+  font-size: 1.5rem;
+}
+
+#board .commentList>.comment>div span:first-child {
+  border-right: .1rem solid #ddd;
+  border-left: .1rem solid #ddd;
+}
+
+#board .commentList>.comment>div span:last-child {
+  border-right: .1rem solid #ddd;
+}
+
+#board .commentList .commentContent {
+  position: relative;
+  height: 7rem;
+}
+
+#board .commentList .commentContent>p {
+  float: left;
+  padding: 2rem .5rem;
+  width: 80%;
+  font-size: 1.8rem;
+  line-height: 3rem;
+}
+
+#board .commentList .commentContent>.btnBox {
+  float: left;
+  width: 20%;
+  height: 6.1rem;
+  text-align: right;
+  line-height: 7.4rem;
+}
+
+
+
+#board .commentList .commentContent .updater {
+  border: .1rem solid #d9d9d9;
+  width: 80%;
+  font-size: 1.6rem;
+  resize: none;
 }
