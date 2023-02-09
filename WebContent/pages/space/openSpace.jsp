@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"%>
 <% 
 	int start = request.getParameter("start") == null ? 0 : Integer.parseInt(request.getParameter("start"));
-
+	int end = 0;
 %>
+<jsp:useBean id ="User" class = "beanData.UserBean" scope = "session" />
 <div id="wrapper">
   <div class="over_section bg_set itm01">
     <h2>열린공간</h2>
@@ -35,9 +36,11 @@
             </tr>
           </tbody>
         </table>
+        <% if(User.getId()!=null){ %>
         <div>
         	<a href="?page=space/write" class="bl_btn writeBtn">글쓰기</a>
         </div>
+        <%} %>
         <div class="pagination">
           <ul>
             <li class="prev"><a href="#" class="bl_btn">prev</a></li>
