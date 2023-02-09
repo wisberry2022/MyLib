@@ -26,7 +26,10 @@
   			url = "pages/first.jsp";
   		}else {
   			if(request.getParameter("prefix") == null) url = "pages/" + request.getParameter("page") + ".jsp";
-  			else url = request.getParameter("prefix") + "/" + request.getParameter("page") + ".jsp"; 
+  			else {
+  				if(request.getParameter("prefix").split(":")[0].equals("id")) url = "pages/" + request.getParameter("page") + ".jsp?" + request.getParameter("prefix").split(":")[0] + "=" + request.getParameter("prefix").split(":")[1];
+  				else url = request.getParameter("prefix") + "/" + request.getParameter("page") + ".jsp";  				
+  			}
   		}
   		
   	%>

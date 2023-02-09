@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% 
+	int start = request.getParameter("start") == null ? 0 : Integer.parseInt(request.getParameter("start"));
+
+%>
 <div id="wrapper">
   <div class="over_section bg_set itm01">
     <h2>열린공간</h2>
@@ -23,16 +27,16 @@
           </thead>
           <tbody>
             <tr>
-              <td><a href="#">1</a></td>
-              <td><a href="#">안녕하세요</a></td>
-              <td><a href="#">user01</a></td>
-              <td><a href="#">2023.02.07</a></td>
-              <td><a href="#">12</a></td>
+              <td><a href="?page=space/detail&prefix=id:1">1</a></td>
+              <td><a href="?page=space/detail&prefix=id:1">안녕하세요</a></td>
+              <td><a href="?page=space/detail&prefix=id:1">user01</a></td>
+              <td><a href="?page=space/detail&prefix=id:1">2023.02.07</a></td>
+              <td><a href="?page=space/detail&prefix=id:1">12</a></td>
             </tr>
           </tbody>
         </table>
         <div>
-        	<a href="#" class="bl_btn writeBtn">글쓰기</a>
+        	<a href="?page=space/write" class="bl_btn writeBtn">글쓰기</a>
         </div>
         <div class="pagination">
           <ul>

@@ -332,11 +332,69 @@
   line-height: 7.4rem;
 }
 
-
-
 #board .commentList .commentContent .updater {
   border: .1rem solid #d9d9d9;
   width: 80%;
   font-size: 1.6rem;
   resize: none;
+}
+
+#write .container h3 {
+  margin-bottom: 5rem;
+  border-bottom: 0.1rem solid #ddd;
+  padding-bottom: 1rem;
+  font-size: 2.6rem;
+  font-weight: 600;
+}
+
+#write table {
+  /* outline: .1rem solid #000; */
+  margin-bottom: 2rem;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#write table td {
+  /* outline: .1rem solid #000; */
+  border-bottom: .1rem solid #e9e9e9;
+  font-size: 1.9rem;
+  font-weight: 500;
+}
+
+#write table>tbody>tr td:first-child {
+  padding: 1.5rem 0;
+  text-align: center;
+  background-color: #F7F7F7;
+}
+
+#write table>tbody>tr:first-child td:last-child {
+  padding: 1.5rem 0 1.5rem 1.5rem;
+}
+
+#write table>tbody>tr:last-child td:last-child {
+  padding: 1.5rem 0 1.5rem 1.5rem;
+}
+
+#write table>tbody>tr td:last-child input {
+  border: .1rem solid #ddd;
+  padding: 1rem 2rem;
+  width: 100%;
+  font-size: 1.3rem;
+}
+
+#write table>tbody>tr td:last-child textarea {
+  border: .1rem solid #ddd;
+  width: 100%;
+  height: 30rem;
+  resize: none;
+}
+
+#write .btnBox {
+  margin-left: auto;
+  width: 30%;
+  text-align: right;
+}
+
+#write .btnBox>.bl_btn {
+  margin-right: 1rem;
 }
