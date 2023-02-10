@@ -1,8 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import = "java.util.*, localSQL.LocalMySql, java.sql.*" %>
+<jsp:useBean id = "Bbs" class = "beanData.BbsBean" />
 <% 
 	int start = request.getParameter("start") == null ? 0 : Integer.parseInt(request.getParameter("start"));
 	int end = 0;
+	
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	List<String[]> bbsList = new ArrayList();
+	
+	String sql = "select num, title, author, writeDate, viewcnt from bbs order by num desc";
+	System.out.println(sql);
+	try {
+		conn = LocalMySql.getConnection();
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery(sql);
+		
+		while(rs.next()) {
+			String[] rawData = new String[5];
+			rawData[0] = String.valueOf(rs.getInt(1));
+			rawData[1] = rs.getString(2);
+			rawData[2] = rs.getString(3);
+			rawData[3] = rs.getDate(4).toLocalDate().toString();
+			rawData[4] = String.valueOf(rs.getInt(5));
+			bbsList.add(rawData);
+		}
+	}finally {
+		if(rs != null) rs.close();
+		if(stmt != null) stmt.close();
+		if(conn != null) conn.close();
+	}
 %>
 <jsp:useBean id ="User" class = "beanData.UserBean" scope = "session" />
 <div id="wrapper">
@@ -28,12 +57,17 @@
           </thead>
           <tbody>
             <tr>
-              <td><a href="?page=space/detail&prefix=id:1">1</a></td>
-              <td><a href="?page=space/detail&prefix=id:1">안녕하세요</a></td>
-              <td><a href="?page=space/detail&prefix=id:1">user01</a></td>
-              <td><a href="?page=space/detail&prefix=id:1">2023.02.07</a></td>
-              <td><a href="?page=space/detail&prefix=id:1">12</a></td>
+            <% 
+            	for(int i = 0; i<bbsList.size(); i++){
+            		String[] data = bbsList.get(i);	
+            %>
+              <td><a href="?page=space/detail&prefix=id:<%=data[0] %>"><%=data[0] %></a></td>
+              <td><a href="?page=space/detail&prefix=id:<%=data[0] %>"><%=data[1] %></a></td>
+              <td><a href="?page=space/detail&prefix=id:<%=data[0] %>"><%=data[2] %></a></td>
+              <td><a href="?page=space/detail&prefix=id:<%=data[0] %>"><%=data[3] %></a></td>
+              <td><a href="?page=space/detail&prefix=id:<%=data[0] %>"><%=data[4] %></a></td>
             </tr>
+            <%} %>
           </tbody>
         </table>
         <% if(User.getId()!=null){ %>

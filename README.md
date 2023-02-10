@@ -86,6 +86,9 @@
 
 <br />
 
+-2023.02.10 (Ver0.10.2)
+  - 게시판 글쓰기/화면 출력 기능 구현
+
   ## 수정해야 할 Bug
   
   - data/login/signup.jsp
@@ -93,3 +96,4 @@
     - db error 시 관리자 문의 에러페이지로 넘어가게 구성
   - response.sendRedirect("../../index.jsp?page=login/signup&error=error");
       - 비밀번호/확인 비밀번호(re field) 맞지 않았을 때 모달 창 뜨게하기
+  - 게시판에서 새로고침 시 제출 양식 확인 창 발생

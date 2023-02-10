@@ -7,7 +7,7 @@
   <section id="write">
     <div class="container">
       <h3>자유게시판</h3>
-      <form actoin="#" method="post">
+      <form action="?page=space/write&prefix=data" method="POST">
         <table>
           <thead class="sr_only">
             <tr>
@@ -21,7 +21,7 @@
                 <label for="writeTitle">제목</label>
               </td>
               <td>
-                <input type="text" name="wrtieText" id="writeTitle" placeholder="제목을 입력하세요" />
+                <input type="text" name="writeText" id="writeTitle" placeholder="제목을 입력하세요" />
               </td>
             </tr>
             <tr>
