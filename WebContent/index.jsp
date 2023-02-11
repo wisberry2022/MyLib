@@ -28,7 +28,10 @@
   		}else {
   			if(request.getParameter("prefix") == null) url = "pages/" + request.getParameter("page") + ".jsp";
   			else {
-  				if(request.getParameter("prefix").split(":")[0].equals("id")) url = "pages/" + request.getParameter("page") + ".jsp?" + request.getParameter("prefix").split(":")[0] + "=" + request.getParameter("prefix").split(":")[1];
+  				String[] prefix = request.getParameter("prefix").split(":");
+  				if(request.getParameter("parent") != null) url = request.getParameter("parent");
+  				else url = "pages";
+  				if(request.getParameter("prefix").contains("id")) url = url + "/" + request.getParameter("page") + ".jsp?" + prefix[0] + "=" + prefix[1];
   				else url = request.getParameter("prefix") + "/" + request.getParameter("page") + ".jsp";  				
   			}
   		}

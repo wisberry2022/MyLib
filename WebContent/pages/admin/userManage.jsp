@@ -42,9 +42,9 @@
 	// 페이지 네이션 개수
 	total = (int)Math.ceil(userList.size()*1.0/5*1.0);
 	end = start + criteria >= total ? total : start+criteria;
-	dataEnd = dataStart + 5 > userList.size() ? userList.size() : dataStart + 5; 
-	// System.out.println(start);
-	// System.out.println("pagination:" + start + " ~ " + end + " / " + total);
+	dataEnd = dataStart + 5 > userList.size() ? userList.size() : dataStart + 5;
+	System.out.println(start);
+	System.out.println("pagination:" + start + " ~ " + end + " / " + total);
 	// System.out.println(dataStart);
 %>
  <div class="innerBox">

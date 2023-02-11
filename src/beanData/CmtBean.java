@@ -2,33 +2,24 @@ package beanData;
 
 import java.util.Date;
 
-public class BbsBean {
+public class CmtBean {
+	private int bbs_num;
 	private int num;
-	private String title;
 	private String author;
 	private Date writeDate;
 	private String content;
-	private int cmtcnt;
-	private int viewcnt;
 	
-	public int getCmtcnt() {
-		return cmtcnt;
+	public int getBbs_num() {
+		return bbs_num;
 	}
-	public void setCmtcnt(int cmtcnt) {
-		this.cmtcnt = cmtcnt;
+	public void setBbs_num(int bbs_num) {
+		this.bbs_num = bbs_num;
 	}
-	
 	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {
 		this.num = num;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
 	}
 	public String getAuthor() {
 		return author;
@@ -48,12 +39,4 @@ public class BbsBean {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getViewcnt() {
-		return viewcnt;
-	}
-	public void setViewcnt(int viewcnt) {
-		this.viewcnt = viewcnt;
-	}
-	
-	
 }

@@ -3,16 +3,32 @@
 <%@page import = "java.util.*, localSQL.LocalMySql, java.sql.*" %>
 <jsp:useBean id = "Bbs" class = "beanData.BbsBean" />
 <% 
+	String searchType = request.getParameter("searchType") == null ? null : request.getParameter("searchType");
+	String target = request.getParameter("target") == null ? null : request.getParameter("target");
+	
+	int pageCriteria = 4;
+	int dataCriteria = 10;
+
 	int start = request.getParameter("start") == null ? 0 : Integer.parseInt(request.getParameter("start"));
 	int end = 0;
 	
+	int dataStart = request.getParameter("count") == null ? 0 : Integer.parseInt(request.getParameter("count"));
+	int dataEnd = 0;
+	
+	int total = 0;
+	
+	String sql = "";
 	Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
 	List<String[]> bbsList = new ArrayList();
 	
-	String sql = "select num, title, author, writeDate, viewcnt from bbs order by num desc";
-	System.out.println(sql);
+	if((searchType != null) && (target != null)) {
+		sql = "select num, title, author, writeDate, viewcnt from bbs where " + searchType + " like '%" + target + "%' order by num desc" ;
+	}else {
+		sql = "select num, title, author, writeDate, viewcnt from bbs order by num desc";
+	}
+	
 	try {
 		conn = LocalMySql.getConnection();
 		stmt = conn.createStatement();
@@ -32,6 +48,14 @@
 		if(stmt != null) stmt.close();
 		if(conn != null) conn.close();
 	}
+	
+	// 페이지네이션 개수
+	total = (int)Math.ceil(bbsList.size()*1.0/dataCriteria*1.0);
+	end = start + pageCriteria >= total ? total : start+pageCriteria; 
+	dataEnd = dataStart + dataCriteria > bbsList.size() ? bbsList.size() : dataStart + dataCriteria;
+// 	System.out.println("전체 데이터 개수:"+ bbsList.size() + "\t" + (bbsList.size()*1.0/5*1.0));
+// 	System.out.println("전체 페이지네이션:"+ total);
+// 	System.out.println("페이지네이션 시작점 - 끝점:" + start + " ~ " + end);
 %>
 <jsp:useBean id ="User" class = "beanData.UserBean" scope = "session" />
 <div id="wrapper">
@@ -58,7 +82,7 @@
           <tbody>
             <tr>
             <% 
-            	for(int i = 0; i<bbsList.size(); i++){
+            	for(int i = dataStart; i<dataEnd; i++){
             		String[] data = bbsList.get(i);	
             %>
               <td><a href="?page=space/detail&prefix=id:<%=data[0] %>"><%=data[0] %></a></td>
@@ -76,24 +100,39 @@
         </div>
         <%} %>
         <div class="pagination">
-          <ul>
-            <li class="prev"><a href="#" class="bl_btn">prev</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li class="next"><a href="#" class="wt_btn">next</a></li>
-          </ul>
+        <% if((searchType != null) && (target != null)){ %>
+	        <ul>
+	            <li class="prev">
+	            	<a href="?page=space/openSpace&searchType=<%=searchType %>&target=<%=target %>&start=<%=start == 0 ? 0 : start-pageCriteria %>" class="bl_btn">prev</a>
+	            </li>
+	            <% for(int i = start; i<end; i++){ %>
+	            <li><a href="?page=space/openSpace&searchType=<%=searchType %>&target=<%=target %>&start=<%=start %>&count=<%=(i*dataCriteria) %>"><%=i+1 %></a></li>
+	            <%} %>
+	            <li class="next">
+	            	<a href="?page=space/openSpace&searchType=<%=searchType %>&target=<%=target %>start=<%=end != total ? start+pageCriteria : start %>&count=<%=end != total? dataStart+dataCriteria : dataStart %>" class="wt_btn">next</a>
+	            </li>	
+	        </ul>
+        <% }else{%>
+	        <ul>
+	            <li class="prev">
+	            	<a href="?page=space/openSpace&start=<%=start == 0 ? 0 : start-pageCriteria %>" class="bl_btn">prev</a>
+	            </li>
+	            <% for(int i = start; i<end; i++){ %>
+	            <li><a href="?page=space/openSpace&start=<%=start %>&count=<%=(i*dataCriteria) %>"><%=i+1 %></a></li>
+	            <%} %>
+	            <li class="next">
+	            	<a href="?page=space/openSpace&start=<%=end != total ? start+pageCriteria : start %>&count=<%=end != total? dataStart+dataCriteria : dataStart %>" class="wt_btn">next</a>
+	            </li>	
+	        </ul>
+          <%} %>
         </div>
-        <form action="#" method="GET">
-          <select name="search">
-            <option name="title">제목</option>
-            <option name="content">내용</option>
-            <option name="author">작성자</option>
-            <option name="date">날짜</option>
+        <form action="?page=space/openSpace" method="POST">
+          <select name="searchType">
+            <option name="title" value = "title">제목</option>
+            <option name="content" value = "content">내용</option>
+            <option name="author" value = "author">작성자</option>
           </select>
-          <input type="search" name="search" placeholder="검색어를 입력하세요" required />
+          <input type="search" name="target" placeholder="검색어를 입력하세요" required />
           <button type="submit" class="wt_btn">검색</button>
         </form>
       </div>

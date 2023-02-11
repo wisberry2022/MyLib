@@ -18,5 +18,5 @@ create table comment (
 	writeDate date NOT NULL,
 	content TEXT NOT NULL,
 	foreign key (bbs_num) references bbs(num) on delete cascade,
-	foreign key (author) references userinfo(id) on delete cascade
+	foreign key (author) references userinfo(nickname) on delete cascade
 );
