@@ -1,5 +1,5 @@
-drop table if exists comment;
-drop table if exists bbs;
+--drop table if exists comment;
+--drop table if exists bbs;
 
 create table bbs (
 	num int primary key auto_increment,

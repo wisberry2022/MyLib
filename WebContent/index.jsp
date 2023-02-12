@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/admin/admin.css">
     <link rel="stylesheet" type="text/css" href="assets/css/admin/detail.css">
     <link rel="stylesheet" type="text/css" href="assets/css/space.css">
-    <script type="text/javascript" src="./assets/js/redirect.js"></script>
+    <script type = "text/javascript" src = "./assets/js/jq/jquery-1.12.4.min.js" ></script>
   </head>
 
   <body>
@@ -28,6 +28,7 @@
   		}else {
   			if(request.getParameter("prefix") == null) url = "pages/" + request.getParameter("page") + ".jsp";
   			else {
+  				System.out.println("prefix parsed: " + request.getParameter("page"));
   				String[] prefix = request.getParameter("prefix").split(":");
   				if(request.getParameter("parent") != null) url = request.getParameter("parent");
   				else url = "pages";
