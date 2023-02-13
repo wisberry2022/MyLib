@@ -2,11 +2,6 @@
     pageEncoding="UTF-8"%>
 
 <script type = "text/javascript">
-// <!-- <p>
-// <textarea name="updateContent" class="updater"></textarea>
-// </p> -->
-// <!--                     <button href="#" class="bl_btn">확인</button> -->
-
 	var leftBox, ta, updateBox;
 	var arr = [];
 	var targetBtn;
@@ -48,7 +43,6 @@
 <%@page import = "java.sql.*, localSQL.LocalMySql, java.util.*" %>
 <%
 	String id = request.getParameter("id");
-// 	System.out.println("detail.jsp: " + id);
 	String sql = "select num, title, author, writeDate, content, viewcnt, (select count(bbs_num) from comment where bbs.num = comment.bbs_num) as cmtcnt from bbs where num=" + id + "";
 	
 	Connection conn = null;
@@ -83,7 +77,6 @@
 	
 	
 	String csql = "select num, author, writeDate, content from comment where bbs_num = " + id + " order by num desc";
-	System.out.println(csql);
 	List<String[]> cmtList = new ArrayList();
 	// 자신의 댓글을 찾기 위한 리스트 -> 댓글의 Author와 현재 접속 중인 유저의 닉네임이 같을 경우 1을 추가, 그렇지 않을 경우 0을 추가한다.
 	// 이후 화면에서 for문을 통해 cmtList를 뿌릴 때, myList의 원소가 1일 경우, 자신의 댓글로 판단하여 수정하기, 삭제하기 버튼을 출력
@@ -109,8 +102,6 @@
 			cmtList.add(cmts);
 			myList.add(idx);
 		}
-		
-		System.out.println(myList);
 		
 	}catch(Exception e) {
 		e.printStackTrace();
@@ -200,10 +191,6 @@
             <p>
               	<%=data[3] %>
             </p>
-<!--             <p> -->
-<!--               <textarea name="updateContent" class="updater"></textarea> -->
-<!--             </p> -->
-            <!-- 로그인 및 본인 댓글일 시 -->
             <div class="btnBox">
               <% 
               if(User.getId() != null){

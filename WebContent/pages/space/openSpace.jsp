@@ -6,6 +6,8 @@
 	String searchType = request.getParameter("searchType") == null ? null : request.getParameter("searchType");
 	String target = request.getParameter("target") == null ? null : request.getParameter("target");
 	
+	
+	
 	int pageCriteria = 4;
 	int dataCriteria = 10;
 
@@ -24,6 +26,15 @@
 	List<String[]> bbsList = new ArrayList();
 	
 	if((searchType != null) && (target != null)) {
+		// 특수문자 입력을 통한 SQL Injection 방지를 위한 특수문자 replace
+		target = target.replace('<', '〈');
+		target = target.replace('>', '〉');
+		target = target.replace('-', '─');
+		target = target.replace('"', '˝');
+		target = target.replace('\'', '＇');
+		
+		System.out.println(target);
+		
 		sql = "select num, title, author, writeDate, viewcnt from bbs where " + searchType + " like '%" + target + "%' order by num desc" ;
 	}else {
 		sql = "select num, title, author, writeDate, viewcnt from bbs order by num desc";

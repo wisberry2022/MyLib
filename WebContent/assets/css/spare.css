@@ -1,0 +1,31 @@
+#sparePage>.container {
+  padding: 5rem;
+}
+
+#sparePage>.container>div {
+  padding: 5rem;
+  border: .1rem solid #ddd;
+}
+
+#sparePage>.container .itm01 {
+  margin: 0 auto 3.5rem auto;
+  width: 25%;
+  height: 10rem;
+  background-image: url("../imgs/etc/spare_01.png");
+}
+
+#sparePage>.container div {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+}
+
+#sparePage>.container h3 {
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+#sparePage>.container h3+p {
+  font-size: 1.7rem;
+}

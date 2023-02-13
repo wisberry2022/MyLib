@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/admin/admin.css">
     <link rel="stylesheet" type="text/css" href="assets/css/admin/detail.css">
     <link rel="stylesheet" type="text/css" href="assets/css/space.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/spare.css">
     <script type = "text/javascript" src = "./assets/js/jq/jquery-1.12.4.min.js" ></script>
   </head>
 
@@ -28,7 +29,6 @@
   		}else {
   			if(request.getParameter("prefix") == null) url = "pages/" + request.getParameter("page") + ".jsp";
   			else {
-  				System.out.println("prefix parsed: " + request.getParameter("page"));
   				String[] prefix = request.getParameter("prefix").split(":");
   				if(request.getParameter("parent") != null) url = request.getParameter("parent");
   				else url = "pages";
@@ -40,13 +40,13 @@
   	%>
     <div id="topHeader">
       <ul>
-        <li><a href="#">사이트맵</a></li>        
+        <li><a href="?page=spare">사이트맵</a></li>        
         <% if(User.getId() == null){ %>
         	<li><a href="?page=login/signup">회원가입</a></li>
         	<li><a href="?page=login/login">로그인</a></li>
         <%}else {
         	if(User.getTypeid() == 2) {%>
-        	<li><a href="?page=user/mypage">마이페이지</a></li>
+        	<li><a href="?page=spare">마이페이지</a></li>
         	<li><a href="?page=login/logout&prefix=data">로그아웃</a></li>
         <%
         	}else if(User.getTypeid() == 1) { 
@@ -68,16 +68,16 @@
     <nav>
       <ul class="mainMenu">
         <li>
-          <a href="?page=home">홈페이지</a>
+          <a href="?page=spare">홈페이지</a>
         </li>
         <li>
-          <a href="?page=info">도서정보</a>
+          <a href="?page=spare">도서정보</a>
         </li>
         <li>
           <a href="?page=space/openSpace">열린공간</a>
         </li>
         <li>
-          <a href="?page=search">자료검색</a>
+          <a href="?page=spare">자료검색</a>
         </li>
       </ul>
     </nav>
@@ -89,10 +89,10 @@
       <div id="top_footer">
         <div class="container">
           <ul>
-            <li><a href="#">이용약관</a></li>
-            <li><a href="#">개인정보 처리방침</a></li>
-            <li><a href="#">저작권보호정책</a></li>
-            <li><a href="#">키보드보안프로그램설치안내</a></li>
+            <li><a href="?page=spare">이용약관</a></li>
+            <li><a href="?page=spare">개인정보 처리방침</a></li>
+            <li><a href="?page=spare">저작권보호정책</a></li>
+            <li><a href="?page=spare">키보드보안프로그램설치안내</a></li>
           </ul>
         </div>
       </div>

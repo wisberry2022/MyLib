@@ -11,8 +11,8 @@
                 지금 바로 시작할 수 있습니다
               </p>
               <div class="btnBox">
-                <a href="#" class="bl_btn">서비스 이용하기</a>
-                <a href="#" class="wt_btn">도서 검색하기</a>
+                <a href="?page=spare" class="bl_btn">서비스 이용하기</a>
+                <a href="?page=spare" class="wt_btn">도서 검색하기</a>
               </div>
             </div>
           </div>
@@ -68,34 +68,34 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a href="#">부산광역시교육감 소속 교육공무직원 취업규칙 개정 안내</a></td>
+                    <td><a href="?page=spare">부산광역시교육감 소속 교육공무직원 취업규칙 개정 안내</a></td>
                     <td>2023.01.31</td>
                   </tr>
                   <tr>
-                    <td><a href="#">2023년 영어독서회 Book Club 회원 모집 안내</a></td>
+                    <td><a href="?page=spare">2023년 영어독서회 Book Club 회원 모집 안내</a></td>
                     <td>2023.01.31</td>
                   </tr>
                   <tr>
-                    <td><a href="#">2023년 2월 영어동화 상영 안내</a></td>
+                    <td><a href="?page=spare">2023년 2월 영어동화 상영 안내</a></td>
                     <td>2023.01.31</td>
                   </tr>
                   <tr>
-                    <td><a href="#">2023년 상반기 고촌어울림도서관 독서문화강좌 수강생 모집 안내</a></td>
+                    <td><a href="?page=spare">2023년 상반기 고촌어울림도서관 독서문화강좌 수강생 모집 안내</a></td>
                     <td>2023.01.31</td>
                   </tr>
                   <tr>
-                    <td><a href="#">2023년 1~2차 기증도서 비치 안내(큰글자도서, 점자라벨 포함)</a></td>
+                    <td><a href="?page=spare">2023년 1~2차 기증도서 비치 안내(큰글자도서, 점자라벨 포함)</a></td>
                     <td>2023.01.31</td>
                   </tr>
                   <tr>
-                    <td><a href="#">금샘도서관 2월 어린이자료실 북큐레이션</a></td>
+                    <td><a href="?page=spare">금샘도서관 2월 어린이자료실 북큐레이션</a></td>
                     <td>2023.01.31</td>
                   </tr>
                 </tbody>
                 <tfoot>
                   <tr>
                     <td colspan="2">
-                      <a href="#" class="bl_btn">더 보기</a>
+                      <a href="?page=spare" class="bl_btn">더 보기</a>
                     </td>
                   </tr>
                 </tfoot>
