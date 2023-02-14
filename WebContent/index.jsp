@@ -21,7 +21,6 @@
   <body>
   	<jsp:useBean id = "User" class = "beanData.UserBean" scope = "session" />
   	<%
-  		
   		System.out.println("유저:" + User.getId() + " " + User.getNickname() + " " + User.getEmail() + " " + User.getAddress() + " " + User.getTypeid());
   		String url = "";
   		if(request.getParameter("page") == null) {

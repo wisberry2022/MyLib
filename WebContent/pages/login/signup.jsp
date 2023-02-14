@@ -1,17 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script type = "text/javascript">
-	var id, pwd, re, nick, email, address;
-	var warn;
+	var form;
+	var ipBox, warn;
+	var pw, re;
 	
 	$(function() {
+		form = $('#signupBox form').eq(0);
+		pw = $('#signupBox .inputBox #pwd');
+		re = $('#signupBox .inputBox #re');
+		
+		// 필수입력칸 
 		$('#signupBox .inputBox').each(function(idx,ele) {
+			// 필수입력 칸 비어있을 경우 경고창 표시
 			if(idx < 5) {
 				warn = $('<span>').text('필수입력 사항입니다').addClass('warn');
-				$(ele).append($(warn))	
-			}
-			
+				$(ele).append($(warn));
+				ipBox = $(ele).find('input');
+				ipBox.keyup(function(e) {
+					$(ele).find('.warn').hide();
+					if(!$(this).val()) $(ele).find('.warn').show(); 
+				})	
+			}	
 		});
+		
+		// 프론트단 validation check
+		form.submit(function(e) {
+			var cnt = 0;
+			$('.warn').each(function(idx, ele) {
+				if($(ele).css('display') == 'none') cnt+=1;
+			})
+			if(pw.val() != re.val()) {
+				return false;
+			}
+			if(cnt == 5) {
+				return true;
+			}
+			else return false;
+		})
 		
 	});
 </script>
