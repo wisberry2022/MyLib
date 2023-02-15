@@ -1,14 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script type = "text/javascript">
+	var modalFrame, modal;
 	var form;
 	var ipBox, warn;
 	var pw, re;
 	
 	$(function() {
+		modalFrame = $('#back');
+		modal = modalFrame.children();
 		form = $('#signupBox form').eq(0);
 		pw = $('#signupBox .inputBox #pwd');
 		re = $('#signupBox .inputBox #re');
+		
+		// 팝업창 이벤트1
+		modalFrame
+			.hide()
+			.click(function(e) {
+				e.stopPropagation();
+				modal.find('.bl_btn').click();
+			});
+		
+		// 팝업창 이벤트2
+		modal
+			.children('.btnBox')
+			.find('.bl_btn')
+			.click(function(e) {
+				e.stopPropagation();
+				modalFrame.hide();
+				// 모달창 닫은 뒤 비밀번호/비밀번호 재확인 창 
+				pw.val('');
+				re.val('');
+			});
+		
 		
 		// 필수입력칸 
 		$('#signupBox .inputBox').each(function(idx,ele) {
@@ -19,7 +43,12 @@
 				ipBox = $(ele).find('input');
 				ipBox.keyup(function(e) {
 					$(ele).find('.warn').hide();
-					if(!$(this).val()) $(ele).find('.warn').show(); 
+					if(idx == 2) {
+						if(!$(this).val() || $(this).val() != pw.val()) $(ele).find('.warn').text('비밀번호가 일치하지 않습니다').show();	
+					}else {
+						if(!$(this).val()) $(ele).find('.warn').show();
+					}
+					 
 				})	
 			}	
 		});
@@ -31,6 +60,7 @@
 				if($(ele).css('display') == 'none') cnt+=1;
 			})
 			if(pw.val() != re.val()) {
+				modalFrame.show();	
 				return false;
 			}
 			if(cnt == 5) {
@@ -79,4 +109,15 @@
       </form>
     </div>
   </section>
+</div>
+<div id="back">
+  <div class="modal">
+    <div>
+      <h3>비밀번호 확인</h3>
+      <p>비밀번호가 일치하지 않습니다. 다시 확인해주세요</p>
+    </div>
+    <div class="btnBox">
+      <button type="button" class="bl_btn">확인</button>
+    </div>
+  </div>
 </div>
