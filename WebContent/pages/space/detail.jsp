@@ -147,11 +147,12 @@
       </div>
       <div class="btnBox">
       <% 
-      if(User.getId() != null) {
-      	if((User.getId().equals("admin")) || (User.getNickname().equals(Bbs.getAuthor()))){ %>
+      if(User.getId() != null) { 
+      	if((User.getTypeid() == 1) || (User.getNickname().equals(Bbs.getAuthor()))){ %>
 	        <a href="?page=space/rewrite&prefix=id:<%=Bbs.getNum() %>" class="bl_btn">수정하기</a>
 	        <a href="?page=space/delete&prefix=id:<%=Bbs.getNum() %>&parent=data" class="wt_btn">삭제하기</a>
-	  <%}} %>      
+	  <%}
+      		}%>      
       </div>
     </div>
     <div class="commentBox container">

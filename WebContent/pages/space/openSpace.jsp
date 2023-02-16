@@ -6,8 +6,6 @@
 	String searchType = request.getParameter("searchType") == null ? null : request.getParameter("searchType");
 	String target = request.getParameter("target") == null ? null : request.getParameter("target");
 	
-	
-	
 	int pageCriteria = 4;
 	int dataCriteria = 10;
 

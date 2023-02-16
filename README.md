@@ -119,13 +119,18 @@
     - 회원가입 시 필수입력창 미입력 시 input 태그 창 옆 경고창 표시
     - 비밀번호, 확인 비밀번호 미일치 시 경고창 표시
 
-    ***
+<br />
 
+-2023.02.16 (Ver1.0.3)
+    - 관리자 모드 시, 아이디가 admin이여야만 게시글 관리할 수 있는 버그 수정
+
+    ***
+    
   ## 수정해야 할 Bug
   
   - data/login/signup.jsp
     - response.sendRedirect("../../index.jsp?page=login/signup&error=dberror");
     - db error 시 관리자 문의 에러페이지로 넘어가게 구성
   - response.sendRedirect("../../index.jsp?page=login/signup&error=error");
-      - 비밀번호/확인 비밀번호(re field) 맞지 않았을 때 모달 창 뜨게하기
+      - ~~비밀번호/확인 비밀번호(re field) 맞지 않았을 때 모달 창 뜨게하기~~
   - 게시판에서 새로고침 시 제출 양식 확인 창 발생
